@@ -1,10 +1,24 @@
 const express = require('express');
 const cors = require('cors');
-
 const { google } = require('googleapis');
 
+const app = express();
+
+// ONLY IF index.js IN THE ROOT FOLDER - (beacuse of MIME Type)
+/* app.get('*.js', (req, res) => {
+  res.type('.js');
+  res.sendFile(path.join(__dirname, req.url));
+}); */
+
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://localhost:5000'],
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
 // Load the service account key JSON file
-const keyFile = require('./calendar-410807.json');
+const keyFile = require('./config/calendar-410807.json');
 
 // Set up JWT (JSON Web Token) authentication
 const jwtClient = new google.auth.JWT({
@@ -19,6 +33,17 @@ jwtClient.authorize(async (err, tokens) => {
     console.error('Error authorizing JWT client:', err);
     return;
   }
+
+  // Endpoint to fetch events for a specific date
+  app.get('/getEvents', async (req, res) => {
+    console.log('getEvents');
+    const date = req.query.date; // Assuming the client sends the date as a query parameter
+    console.log(date);
+    // Example: Sending a response with a message
+    res
+      .status(200)
+      .json({ message: 'Successfully received a request with date ' + date });
+  });
 
   // Create a Google Calendar API client
   const calendar = google.calendar({ version: 'v3', auth: jwtClient });
@@ -46,7 +71,7 @@ jwtClient.authorize(async (err, tokens) => {
       }
 
       const events = res.data.items;
-      console.log(res.data);
+      /*     console.log(res.data); */
       console.log('Upcoming events:');
       if (events.length) {
         events.forEach((event) => {
@@ -59,21 +84,6 @@ jwtClient.authorize(async (err, tokens) => {
     }
   );
 });
-
-const app = express();
-
-// ONLY IF index.js IN THE ROOT FOLDER - (beacuse of MIME Type)
-/* app.get('*.js', (req, res) => {
-  res.type('.js');
-  res.sendFile(path.join(__dirname, req.url));
-}); */
-
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 

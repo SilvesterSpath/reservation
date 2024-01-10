@@ -1,6 +1,15 @@
 // Home.js
 
+import { useEffect } from 'react';
+
 const Home = () => {
+  useEffect(() => {
+    // Fetch data when the component mounts
+    fetch('http://localhost:3000/getEvents?date=2010-10-10')
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error('Error:', error));
+  }, []); // The empty dependency array ensures that this effect runs only once when the component mounts
   return (
     <iframe
       id='calendar'
