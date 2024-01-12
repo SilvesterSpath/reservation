@@ -23,8 +23,8 @@ const Navbar = () => {
             </li>
 
             <li>
-              <Link to='/about' onClick={closeMobileMenu}>
-                About
+              <Link to='/events' onClick={closeMobileMenu}>
+                Events
               </Link>
             </li>
 

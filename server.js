@@ -27,23 +27,14 @@ const jwtClient = new google.auth.JWT({
   scopes: ['https://www.googleapis.com/auth/calendar.readonly'],
 });
 
+let calendarEvents;
+
 // Authorize the client and make the API request
 jwtClient.authorize(async (err, tokens) => {
   if (err) {
     console.error('Error authorizing JWT client:', err);
     return;
   }
-
-  // Endpoint to fetch events for a specific date
-  app.get('/getEvents', async (req, res) => {
-    console.log('getEvents');
-    const date = req.query.date; // Assuming the client sends the date as a query parameter
-    console.log(date);
-    // Example: Sending a response with a message
-    res
-      .status(200)
-      .json({ message: 'Successfully received a request with date ' + date });
-  });
 
   // Create a Google Calendar API client
   const calendar = google.calendar({ version: 'v3', auth: jwtClient });
@@ -59,7 +50,7 @@ jwtClient.authorize(async (err, tokens) => {
     {
       calendarId: 'spath.sz@gmail.com', // Use 'primary' for the primary calendar associated with the service account
       timeMin: new Date().toISOString(),
-      maxResults: 10,
+      maxResults: 12,
       singleEvents: true,
       orderBy: 'startTime',
       timeZone: 'Europe/Budapest',
@@ -70,11 +61,11 @@ jwtClient.authorize(async (err, tokens) => {
         return;
       }
 
-      const events = res.data.items;
+      calendarEvents = res.data.items;
       /*     console.log(res.data); */
-      console.log('Upcoming events:');
-      if (events.length) {
-        events.forEach((event) => {
+      console.log('Upcoming calendarEvents:');
+      if (calendarEvents.length) {
+        calendarEvents.forEach((event) => {
           const start = event.start.dateTime || event.start.date;
           console.log(`${start} - ${event.summary}`);
         });
@@ -83,6 +74,24 @@ jwtClient.authorize(async (err, tokens) => {
       }
     }
   );
+});
+
+// Endpoint to fetch events for a specific date
+app.get('/getEvents', async (req, res) => {
+  console.log('getEvents');
+  const date = req.query.date; // Assuming the client sends the date as a query parameter
+  console.log(date);
+  // Example: Sending a response with a message
+  res
+    .status(200)
+    .json({ message: 'Successfully received a request with date ' + date });
+});
+
+// Endpoint to fetch events
+app.get('/events', async (req, res) => {
+  console.log('get_/events');
+  // Example: Sending a response with a message
+  res.json(calendarEvents);
 });
 
 const PORT = process.env.PORT || 5000;

@@ -1,5 +1,4 @@
 let root = document.getElementById('root');
-console.log(root);
 
 root.addEventListener('click', (e) => {
   console.log('event', e);

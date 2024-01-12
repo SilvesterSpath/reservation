@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './common/Navbar/Navbar';
 import {
   BrowserRouter as Router,
@@ -7,8 +7,23 @@ import {
 } from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Home from './common/Home/Home';
+import Events from './common/Events/Events';
 
-const h1 = () => {
+const App = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const response = await fetch('/events');
+      console.log('fetch_response', response);
+      const data = await response.json();
+      console.log(data);
+      setEvents(data);
+    };
+
+    fetchEvents();
+  }, []);
+
   return (
     <>
       <Router>
@@ -17,10 +32,13 @@ const h1 = () => {
           <Route exact path='/'>
             <Home />
           </Route>
+          <Route exact path='/events'>
+            <Events calendarEvents={events} />
+          </Route>
         </Switch>
       </Router>
     </>
   );
 };
 
-export default h1;
+export default App;
