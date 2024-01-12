@@ -30,7 +30,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path='/'>
-            <Home />
+            <Home calendarEvents={events} />
           </Route>
           <Route exact path='/events'>
             <Events calendarEvents={events} />

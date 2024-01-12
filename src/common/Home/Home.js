@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-const Home = () => {
+const Home = (events) => {
+  console.log(events.calendarEvents);
   const [calendarEvents, setCalendarEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -42,18 +43,8 @@ const Home = () => {
   )}&color=%237986CB&color=%230B8043&color=%230B8043`;
   return (
     <>
-      <iframe
-        id='calendar'
-        title='Google Calendar'
-        /*       src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FBudapest&src=c3BhdGguc3pAZ21haWwuY29t&src=ZW4uaHVuZ2FyaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aHUuaHVuZ2FyaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%237986CB&color=%230B8043&color=%230B8043' */
-        src={embedLink}
-        width='800'
-        height='600'
-        frameBorder='0'
-        scrolling='no'
-      />
       <div className='events-container'>
-        {calendarEvents.map((event) => (
+        {events.calendarEvents.map((event) => (
           <div key={event.id} className='event-card'>
             <p>
               <strong>{event.summary}</strong>
@@ -62,7 +53,9 @@ const Home = () => {
               <br />
               End: {new Date(event.end.dateTime).toLocaleString()}
             </p>
-            <button onClick={() => handleEventClick(event)}>Edit Event</button>
+            <button onClick={(e) => handleEventClick(event, e)}>
+              Edit Event
+            </button>
           </div>
         ))}
       </div>
