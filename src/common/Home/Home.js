@@ -1,9 +1,7 @@
-// Home.js
-
 import { useEffect, useState } from 'react';
+import './Home.css';
 
 const Home = (events) => {
-  console.log(events.calendarEvents);
   const [calendarEvents, setCalendarEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -43,6 +41,15 @@ const Home = (events) => {
   )}&color=%237986CB&color=%230B8043&color=%230B8043`;
   return (
     <>
+      <iframe
+        id='calendar'
+        title='Google Calendar'
+        src={embedLink}
+        width='800'
+        height='600'
+        frameBorder='0'
+        scrolling='no'
+      />
       <div className='events-container'>
         {events.calendarEvents.map((event) => (
           <div key={event.id} className='event-card'>
