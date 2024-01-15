@@ -24,6 +24,22 @@ const App = () => {
     fetchEvents();
   }, []);
 
+  useEffect(() => {
+    const handleIframeClick = () => {
+      console.log('Iframe clicked!');
+    };
+
+    window.addEventListener('message', (event) => {
+      if (event.data === 'iframeClick') {
+        handleIframeClick();
+      }
+    });
+
+    return () => {
+      window.removeEventListener('message', handleIframeClick);
+    };
+  }, []);
+
   return (
     <>
       <Router>
