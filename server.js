@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
-const { google } = require('googleapis');
+/* const { google } = require('googleapis');
+const keyFile = require('./config/calendar-410807.json'); */
+const calendar = require('./calendar');
 
 const app = express();
 
@@ -17,10 +19,26 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Load the service account key JSON file
-const keyFile = require('./config/calendar-410807.json');
+let calendarEvents;
 
-// Set up JWT (JSON Web Token) authentication
+async function main() {
+  let authClient;
+
+  try {
+    authClient = await calendar.auth();
+  } catch (err) {
+    console.error('Auth error', err);
+    return;
+  }
+
+  calendarEvents = await calendar.getEvents(authClient);
+
+  console.log(calendarEvents);
+}
+
+main();
+
+/* // Set up JWT (JSON Web Token) authentication
 const jwtClient = new google.auth.JWT({
   email: keyFile.client_email,
   key: keyFile.private_key,
@@ -62,7 +80,7 @@ jwtClient.authorize(async (err, tokens) => {
       }
 
       calendarEvents = res.data.items;
-      /*     console.log(res.data); */
+
       console.log('Upcoming calendarEvents:');
       if (calendarEvents.length) {
         calendarEvents.forEach((event) => {
@@ -74,7 +92,7 @@ jwtClient.authorize(async (err, tokens) => {
       }
     }
   );
-});
+}); */
 
 // Endpoint to fetch events for a specific date
 app.get('/getEvents', async (req, res) => {

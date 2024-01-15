@@ -6,14 +6,6 @@ const Home = (events) => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
-  /*   useEffect(() => {
-    // Fetch data when the component mounts
-    fetch('http://localhost:3000/getEvents?date=2010-10-10')
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error('Error:', error));
-  }, []); // The empty dependency array ensures that this effect runs only once when the component mounts */
-
   // Function to handle event click
   const handleEventClick = (event, e) => {
     e.preventDefault();
@@ -42,16 +34,6 @@ const Home = (events) => {
   )}&color=%237986CB&color=%230B8043&color=%230B8043`;
   return (
     <>
-      {/*       <iframe
-        id='calendar'
-        title='Google Calendar'
-        src={embedLink}
-        width='800'
-        height='600'
-        onClick={handleCalendarClick}
-        frameBorder='0'
-        scrolling='no'
-      /> */}
       <div className='events-container'>
         {events.calendarEvents.map((event) => (
           <div key={event.id} className='event-card'>
