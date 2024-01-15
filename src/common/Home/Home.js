@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Home.css';
 
 const Home = (events) => {
@@ -28,10 +28,10 @@ const Home = (events) => {
     setIsFormVisible(false);
   };
 
-  const calendarId = 'spath.sz@gmail.com'; // Replace with your Gmail address
+  /*   const calendarId = 'spath.sz@gmail.com'; // Replace with your Gmail address
   const embedLink = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FBudapest&src=${encodeURIComponent(
     calendarId
-  )}&color=%237986CB&color=%230B8043&color=%230B8043`;
+  )}&color=%237986CB&color=%230B8043&color=%230B8043`; */
   return (
     <>
       <div className='events-container'>
