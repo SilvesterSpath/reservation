@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const calendar = require('./calendar');
+const { writeToFile } = require('./utils/utils');
 
 const app = express();
 
@@ -12,7 +13,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 let calendarEvents;
-/* let eventsArray; */
+let fullCalendar;
 
 async function main() {
   let authClient;
@@ -29,16 +30,21 @@ async function main() {
 
   calendarEvents.forEach((event) => {
     console.log(event.summary);
-    const date = new Date(event.start.dateTime || event.start.date)
-      .toISOString()
-      .split('T')[0];
-    eventsByDate[date] = {
+    const startDate = new Date(event.start.dateTime || event.start.date);
+    const endDate = new Date(event.end.dateTime || event.end.date);
+
+    const date = startDate.toISOString().split('T')[0];
+
+    eventsByDate[date] = event; /* {
       summary: event.summary,
-      time: new Date(event.start.dateTime).toLocaleTimeString('en-US', {
+      time: `${startDate.toLocaleTimeString('en-US', {
         timeStyle: 'short',
         hour12: false,
-      }),
-    };
+      })}-${endDate.toLocaleTimeString('en-US', {
+        timeStyle: 'short',
+        hour12: false,
+      })}`,
+    }; */
   });
   console.log('eventsByDate', eventsByDate);
 
@@ -51,21 +57,23 @@ async function main() {
     .map((date) => date.toISOString().split('T')[0]);
   console.log('dateRange', dateRange);
 
-  const fullCalendar = dateRange.map((date) => {
+  fullCalendar = dateRange.map((date) => {
     const event = eventsByDate[date];
     return {
       date,
-      event: event ? event.summary : null,
-      time: event ? event.time : null,
+      event: event ? event : null,
     };
   });
 
   console.log(fullCalendar);
+  /*   // Call the async function to write 'calendarEvents' to a file
+  await writeToFile('calendarEvents.json', calendarEvents);
+
+  // Call the async function to write 'fullCalendar' to a file
+  await writeToFile('fullCalendar.json', fullCalendar); */
 }
 
 main();
-
-// Usage
 
 // Endpoint to fetch events for a specific date
 app.get('/getEvents', async (req, res) => {
@@ -82,7 +90,7 @@ app.get('/getEvents', async (req, res) => {
 app.get('/events', async (req, res) => {
   console.log('get_/events');
   // Example: Sending a response with a message
-  res.json(calendarEvents);
+  res.json(fullCalendar);
 });
 
 const PORT = process.env.PORT || 5000;

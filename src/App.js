@@ -46,7 +46,7 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path='/'>
-            <Home calendarEvents={events} />
+            <Home events={events} />
           </Route>
           <Route exact path='/events'>
             <Events calendarEvents={events} />

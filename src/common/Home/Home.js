@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Home.css';
 
-const Home = (events) => {
+const Home = ({ events }) => {
   const [calendarEvents, setCalendarEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -35,20 +35,24 @@ const Home = (events) => {
   return (
     <>
       <div className='events-container'>
-        {events.calendarEvents.map((event) => (
-          <div key={event.id} className='event-card'>
-            <p>
-              <strong>{event.summary}</strong>
-              <br />
-              Start: {new Date(event.start.dateTime).toLocaleString()}
-              <br />
-              End: {new Date(event.end.dateTime).toLocaleString()}
-            </p>
-            <button onClick={(e) => handleEventClick(event, e)}>
-              Edit Event
-            </button>
-          </div>
-        ))}
+        {events.map((item) =>
+          item.event === null ? (
+            <div key={item.id}>Datea: item.date</div>
+          ) : (
+            <div key={item.id} className='event-card'>
+              <p>
+                <strong>{item.summary}</strong>
+                <br />
+                Start: {new Date(item.event.start.dateTime).toLocaleString()}
+                <br />
+                End: {new Date(item.event.end.dateTime).toLocaleString()}
+              </p>
+              <button onClick={(e) => handleEventClick(item, e)}>
+                Edit Event
+              </button>
+            </div>
+          )
+        )}
       </div>
       {/* Form Modal */}
       {isFormVisible && selectedEvent && (

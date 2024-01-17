@@ -1,0 +1,397 @@
+[
+  {
+    "kind": "calendar#event",
+    "etag": "\"3410958436442000\"",
+    "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g60s46h1g6ooj4ca46gsk8g9g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g6p2j0da260pk8ca56t2jic9k74s38d1k85132g9m751j0c9p6co0",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc2MHM0NmgxZzZvb2o0Y2E0NmdzazhnOWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnNnAyajBkYTI2MHBrOGNhNTZ0MmppYzlrNzRzMzhkMWs4NTEzMmc5bTc1MWowYzlwNmNvMCBzcGF0aC5zekBt",
+    "created": "2024-01-17T08:13:38.000Z",
+    "updated": "2024-01-17T08:13:38.221Z",
+    "summary": "test",
+    "creator": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "organizer": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2024-01-18T08:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-01-18T08:30:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "040000008200E00074C5B7101A82E0080000000008CD06121D49DA010000000000000000100000006E05B03D1E7E91498444AB1A69C01930",
+    "sequence": 0,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3410959369602000\"",
+    "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g8h0k2gi48go4cca46gsk8g9g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g851jic1m74s3agpg60s3ae1k8gs3echp74q46hi5651j6dhk6krg",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4aDBrMmdpNDhnbzRjY2E0NmdzazhnOWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODUxamljMW03NHMzYWdwZzYwczNhZTFrOGdzM2VjaHA3NHE0NmhpNTY1MWo2ZGhrNmtyZyBzcGF0aC5zekBt",
+    "created": "2024-01-17T08:13:34.000Z",
+    "updated": "2024-01-17T08:21:24.801Z",
+    "summary": "test",
+    "creator": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "organizer": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2024-01-23T09:30:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-01-23T10:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "040000008200E00074C5B7101A82E00800000000DAABDD0F1D49DA01000000000000000010000000AC906985C008584D872994CFE1C36457",
+    "sequence": 1,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3410959393762000\"",
+    "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g75338ga18koj8ca46gsk8g9g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8go46ha38gp3icq3651j0ghk6d130c1k8d13ida46goj8dpm8530",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc3NTMzOGdhMThrb2o4Y2E0NmdzazhnOWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOGdvNDZoYTM4Z3AzaWNxMzY1MWowZ2hrNmQxMzBjMWs4ZDEzaWRhNDZnb2o4ZHBtODUzMCBzcGF0aC5zekBt",
+    "created": "2024-01-17T08:13:41.000Z",
+    "updated": "2024-01-17T08:21:36.881Z",
+    "summary": "test",
+    "creator": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "organizer": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2024-01-29T13:30:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-01-29T14:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "040000008200E00074C5B7101A82E008000000009F4AAE141D49DA01000000000000000010000000D0CECD293C1C0B43B004CB95D41476AF",
+    "sequence": 1,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3348268784828000\"",
+    "id": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g_20240204T120000Z",
+    "status": "tentative",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmNxbTJjajNjcGlqZWJiNTY4c21hYjlrNzBxamViYjI2OHBtOGI5bWNsaW1jZHIzNzRxMzhwMW02Z18yMDI0MDIwNFQxMjAwMDBaIHNwYXRoLnN6QG0",
+    "created": "2021-05-04T10:41:59.000Z",
+    "updated": "2023-01-19T13:19:52.414Z",
+    "summary": "Algoexpert",
+    "creator": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "organizer": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "start": {
+      "dateTime": "2024-02-04T13:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-02-04T14:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "recurringEventId": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g",
+    "originalStartTime": {
+      "dateTime": "2024-02-04T13:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g@google.com",
+    "sequence": 1,
+    "attendees": [
+      {
+        "email": "sajben.sz@gmail.com",
+        "organizer": true,
+        "responseStatus": "accepted"
+      },
+      {
+        "email": "spath.sz@gmail.com",
+        "self": true,
+        "responseStatus": "needsAction"
+      }
+    ],
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3409769153752000\"",
+    "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g8oqj2ga26gsj0ghk6gpk8g9g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g891j4chp68q4aga164sk8e9k70sj6gi26oqkcc9j68r48c1h6cog",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4b3FqMmdhMjZnc2owZ2hrNmdwazhnOWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnODkxajRjaHA2OHE0YWdhMTY0c2s4ZTlrNzBzajZnaTI2b3FrY2M5ajY4cjQ4YzFoNmNvZyBzcGF0aC5zekBt",
+    "created": "2024-01-10T11:02:56.000Z",
+    "updated": "2024-01-10T11:02:56.876Z",
+    "summary": "fogász",
+    "creator": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "organizer": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2024-02-07T10:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-02-07T10:30:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "040000008200E00074C5B7101A82E00800000000F51AB490B443DA01000000000000000010000000BC22924EAA19D94893BB65F1326D0131",
+    "sequence": 0,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3409769290748000\"",
+    "id": "_60q30c1g60o30e1i60o4ac1g60rj8gpl88rj2c1h84s34h9g60s30c1g60o30c1g84pjih9n6t13ighk6gpk8g9g64o30c1g60o30c1g60o30c1g60o32c1g60o30c1g8oo3eh9n88o4cci66gs3echk690j0dpl74sk6cq36ooj6dpk711g",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=XzYwcTMwYzFnNjBvMzBlMWk2MG80YWMxZzYwcmo4Z3BsODhyajJjMWg4NHMzNGg5ZzYwczMwYzFnNjBvMzBjMWc4NHBqaWg5bjZ0MTNpZ2hrNmdwazhnOWc2NG8zMGMxZzYwbzMwYzFnNjBvMzBjMWc2MG8zMmMxZzYwbzMwYzFnOG9vM2VoOW44OG80Y2NpNjZnczNlY2hrNjkwajBkcGw3NHNrNmNxMzZvb2o2ZHBrNzExZyBzcGF0aC5zekBt",
+    "created": "2024-01-10T11:04:05.000Z",
+    "updated": "2024-01-10T11:04:05.374Z",
+    "summary": "fogász 2",
+    "creator": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "organizer": {
+      "email": "spath.sz@gmail.com",
+      "self": true
+    },
+    "start": {
+      "dateTime": "2024-02-14T14:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-02-14T14:30:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "040000008200E00074C5B7101A82E00800000000A39E77B9B443DA01000000000000000010000000F07E7B0F2F487242A07599C3C613748C",
+    "sequence": 0,
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3348268784828000\"",
+    "id": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g_20240304T120000Z",
+    "status": "tentative",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmNxbTJjajNjcGlqZWJiNTY4c21hYjlrNzBxamViYjI2OHBtOGI5bWNsaW1jZHIzNzRxMzhwMW02Z18yMDI0MDMwNFQxMjAwMDBaIHNwYXRoLnN6QG0",
+    "created": "2021-05-04T10:41:59.000Z",
+    "updated": "2023-01-19T13:19:52.414Z",
+    "summary": "Algoexpert",
+    "creator": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "organizer": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "start": {
+      "dateTime": "2024-03-04T13:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-03-04T14:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "recurringEventId": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g",
+    "originalStartTime": {
+      "dateTime": "2024-03-04T13:00:00+01:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g@google.com",
+    "sequence": 1,
+    "attendees": [
+      {
+        "email": "sajben.sz@gmail.com",
+        "organizer": true,
+        "responseStatus": "accepted"
+      },
+      {
+        "email": "spath.sz@gmail.com",
+        "self": true,
+        "responseStatus": "needsAction"
+      }
+    ],
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3348268784828000\"",
+    "id": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g_20240404T110000Z",
+    "status": "tentative",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmNxbTJjajNjcGlqZWJiNTY4c21hYjlrNzBxamViYjI2OHBtOGI5bWNsaW1jZHIzNzRxMzhwMW02Z18yMDI0MDQwNFQxMTAwMDBaIHNwYXRoLnN6QG0",
+    "created": "2021-05-04T10:41:59.000Z",
+    "updated": "2023-01-19T13:19:52.414Z",
+    "summary": "Algoexpert",
+    "creator": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "organizer": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "start": {
+      "dateTime": "2024-04-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-04-04T14:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "recurringEventId": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g",
+    "originalStartTime": {
+      "dateTime": "2024-04-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g@google.com",
+    "sequence": 1,
+    "attendees": [
+      {
+        "email": "sajben.sz@gmail.com",
+        "organizer": true,
+        "responseStatus": "accepted"
+      },
+      {
+        "email": "spath.sz@gmail.com",
+        "self": true,
+        "responseStatus": "needsAction"
+      }
+    ],
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3348268784828000\"",
+    "id": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g_20240504T110000Z",
+    "status": "tentative",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmNxbTJjajNjcGlqZWJiNTY4c21hYjlrNzBxamViYjI2OHBtOGI5bWNsaW1jZHIzNzRxMzhwMW02Z18yMDI0MDUwNFQxMTAwMDBaIHNwYXRoLnN6QG0",
+    "created": "2021-05-04T10:41:59.000Z",
+    "updated": "2023-01-19T13:19:52.414Z",
+    "summary": "Algoexpert",
+    "creator": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "organizer": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "start": {
+      "dateTime": "2024-05-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-05-04T14:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "recurringEventId": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g",
+    "originalStartTime": {
+      "dateTime": "2024-05-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g@google.com",
+    "sequence": 1,
+    "attendees": [
+      {
+        "email": "sajben.sz@gmail.com",
+        "organizer": true,
+        "responseStatus": "accepted"
+      },
+      {
+        "email": "spath.sz@gmail.com",
+        "self": true,
+        "responseStatus": "needsAction"
+      }
+    ],
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  },
+  {
+    "kind": "calendar#event",
+    "etag": "\"3348268784828000\"",
+    "id": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g_20240604T110000Z",
+    "status": "tentative",
+    "htmlLink": "https://www.google.com/calendar/event?eid=NmNxbTJjajNjcGlqZWJiNTY4c21hYjlrNzBxamViYjI2OHBtOGI5bWNsaW1jZHIzNzRxMzhwMW02Z18yMDI0MDYwNFQxMTAwMDBaIHNwYXRoLnN6QG0",
+    "created": "2021-05-04T10:41:59.000Z",
+    "updated": "2023-01-19T13:19:52.414Z",
+    "summary": "Algoexpert",
+    "creator": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "organizer": {
+      "email": "sajben.sz@gmail.com"
+    },
+    "start": {
+      "dateTime": "2024-06-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "end": {
+      "dateTime": "2024-06-04T14:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "recurringEventId": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g",
+    "originalStartTime": {
+      "dateTime": "2024-06-04T13:00:00+02:00",
+      "timeZone": "Europe/Budapest"
+    },
+    "iCalUID": "6cqm2cj3cpijebb568smab9k70qjebb268pm8b9mclimcdr374q38p1m6g@google.com",
+    "sequence": 1,
+    "attendees": [
+      {
+        "email": "sajben.sz@gmail.com",
+        "organizer": true,
+        "responseStatus": "accepted"
+      },
+      {
+        "email": "spath.sz@gmail.com",
+        "self": true,
+        "responseStatus": "needsAction"
+      }
+    ],
+    "reminders": {
+      "useDefault": true
+    },
+    "eventType": "default"
+  }
+]
