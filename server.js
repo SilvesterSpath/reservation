@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const calendar = require('./calendar');
 const { writeToFile } = require('./utils/utils');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
@@ -58,8 +59,11 @@ async function main() {
   console.log('dateRange', dateRange);
 
   fullCalendar = dateRange.map((date) => {
+    // Generate a unique ID
+    const uniqueID = uuidv4();
     const event = eventsByDate[date];
     return {
+      id: uniqueID,
       date,
       event: event ? event : null,
     };

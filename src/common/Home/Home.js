@@ -37,11 +37,13 @@ const Home = ({ events }) => {
       <div className='events-container'>
         {events.map((item) =>
           item.event === null ? (
-            <div key={item.id}>Datea: item.date</div>
+            <div key={item.id} className='event-card'>
+              <div>Datea: {item.date}</div>
+            </div>
           ) : (
             <div key={item.id} className='event-card'>
               <p>
-                <strong>{item.summary}</strong>
+                <strong>{item.event.summary}</strong>
                 <br />
                 Start: {new Date(item.event.start.dateTime).toLocaleString()}
                 <br />
