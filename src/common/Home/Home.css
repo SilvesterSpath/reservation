@@ -1,26 +1,29 @@
 /* Your CSS styles */
 .events-container {
   display: flex;
-  margin: 10px;
   padding: 30px;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 5px;
 }
 
 .event-card {
   border: 1px solid #ccc;
   padding: 12px;
   border-radius: 8px;
+  height: 200px; /* Set a fixed height for all event cards */
+  width: 150px; /* Set a fixed width for all event cards */
+  box-sizing: border-box; /* Include padding and border in the total width/height */
+  display: flex;
+  flex-direction: column;
 }
 
 .event-summary {
-  font-size: 18px;
+  font-size: 12px;
   margin-bottom: 8px;
 }
 
 .event-details {
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .edit-button {

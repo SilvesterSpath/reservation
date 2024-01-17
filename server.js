@@ -27,27 +27,16 @@ async function main() {
   }
   const eventsByDate = {};
   calendarEvents = await calendar.getEvents(authClient);
-  /*   console.log('Is calendarEvents an array?', Array.isArray(calendarEvents)); */
 
   calendarEvents.forEach((event) => {
     console.log(event.summary);
     const startDate = new Date(event.start.dateTime || event.start.date);
-    const endDate = new Date(event.end.dateTime || event.end.date);
+    /* const endDate = new Date(event.end.dateTime || event.end.date); */
 
     const date = startDate.toISOString().split('T')[0];
 
-    eventsByDate[date] = event; /* {
-      summary: event.summary,
-      time: `${startDate.toLocaleTimeString('en-US', {
-        timeStyle: 'short',
-        hour12: false,
-      })}-${endDate.toLocaleTimeString('en-US', {
-        timeStyle: 'short',
-        hour12: false,
-      })}`,
-    }; */
+    eventsByDate[date] = event;
   });
-  console.log('eventsByDate', eventsByDate);
 
   const today = new Date();
   const start = calendar.getStartOfMonth(today);

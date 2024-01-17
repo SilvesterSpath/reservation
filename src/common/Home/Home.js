@@ -6,6 +6,20 @@ const Home = ({ events }) => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
+  const getDayOfWeek = (dateString) => {
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    const date = new Date(dateString);
+    return daysOfWeek[date.getDay()];
+  };
+
   // Function to handle event click
   const handleEventClick = (event, e) => {
     e.preventDefault();
@@ -15,7 +29,7 @@ const Home = ({ events }) => {
 
   // Function to handle form submission
   const handleFormSubmit = (formData) => {
-    // Update the selected event with the new data (this is just an example, you might have different logic)
+    // Update the selected event with the new data
     const updatedEvents = calendarEvents.map((event) =>
       event.id === selectedEvent.id ? { ...event, ...formData } : event
     );
@@ -28,27 +42,35 @@ const Home = ({ events }) => {
     setIsFormVisible(false);
   };
 
-  /*   const calendarId = 'spath.sz@gmail.com'; // Replace with your Gmail address
-  const embedLink = `https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Europe%2FBudapest&src=${encodeURIComponent(
-    calendarId
-  )}&color=%237986CB&color=%230B8043&color=%230B8043`; */
   return (
     <>
       <div className='events-container'>
         {events.map((item) =>
           item.event === null ? (
             <div key={item.id} className='event-card'>
-              <div>Datea: {item.date}</div>
+              <div>{getDayOfWeek(item.date)}</div>
+              <div>{item.date}</div>
             </div>
           ) : (
             <div key={item.id} className='event-card'>
-              <p>
-                <strong>{item.event.summary}</strong>
+              <div>{getDayOfWeek(item.date)}</div>
+              <div>{item.date}</div>
+              <strong>{item.event.summary}</strong>
+              <div className='event-details'>
+                Start:{' '}
+                {new Date(item.event.start.dateTime).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
                 <br />
-                Start: {new Date(item.event.start.dateTime).toLocaleString()}
-                <br />
-                End: {new Date(item.event.end.dateTime).toLocaleString()}
-              </p>
+                End:{' '}
+                {new Date(item.event.end.dateTime).toLocaleTimeString([], {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </div>
+              <br />
+              {''}
               <button onClick={(e) => handleEventClick(item, e)}>
                 Edit Event
               </button>
