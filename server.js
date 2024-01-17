@@ -12,6 +12,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 let calendarEvents;
+/* let eventsArray; */
 
 async function main() {
   let authClient;
@@ -22,13 +23,49 @@ async function main() {
     console.error('Auth error', err);
     return;
   }
-
+  const eventsByDate = {};
   calendarEvents = await calendar.getEvents(authClient);
+  /*   console.log('Is calendarEvents an array?', Array.isArray(calendarEvents)); */
 
-  console.log(calendarEvents);
+  calendarEvents.forEach((event) => {
+    console.log(event.summary);
+    const date = new Date(event.start.dateTime || event.start.date)
+      .toISOString()
+      .split('T')[0];
+    eventsByDate[date] = {
+      summary: event.summary,
+      time: new Date(event.start.dateTime).toLocaleTimeString('en-US', {
+        timeStyle: 'short',
+        hour12: false,
+      }),
+    };
+  });
+  console.log('eventsByDate', eventsByDate);
+
+  const today = new Date();
+  const start = calendar.getStartOfMonth(today);
+  const end = calendar.getEndOfMonth(today);
+
+  const dateRange = calendar
+    .getDateRange(start, end)
+    .map((date) => date.toISOString().split('T')[0]);
+  console.log('dateRange', dateRange);
+
+  const fullCalendar = dateRange.map((date) => {
+    const event = eventsByDate[date];
+    return {
+      date,
+      event: event ? event.summary : null,
+      time: event ? event.time : null,
+    };
+  });
+
+  console.log(fullCalendar);
 }
 
 main();
+
+// Usage
 
 // Endpoint to fetch events for a specific date
 app.get('/getEvents', async (req, res) => {

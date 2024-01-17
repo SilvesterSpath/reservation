@@ -34,7 +34,32 @@ async function getEvents(authClient) {
   return res.data.items;
 }
 
+// Get date range utilities
+
+function getStartOfMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth(), 1);
+}
+
+function getEndOfMonth(date) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+}
+
+function getDateRange(startDate, endDate) {
+  const dates = [];
+  let current = startDate;
+
+  while (current <= endDate) {
+    dates.push(new Date(current));
+    current.setDate(current.getDate() + 1);
+  }
+
+  return dates;
+}
+
 module.exports = {
   auth,
   getEvents,
+  getDateRange,
+  getEndOfMonth,
+  getStartOfMonth,
 };
