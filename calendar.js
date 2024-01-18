@@ -1,5 +1,7 @@
 const { google } = require('googleapis');
 const key = require('./config/calendar-410807.json');
+const { startOfMonth, endOfMonth, format } = require('date-fns');
+const { utcToZonedTime } = require('date-fns-tz');
 
 const calendar = google.calendar({ version: 'v3' });
 
@@ -36,15 +38,25 @@ async function getEvents(authClient) {
 
 // Get date range utilities
 
-function getStartOfMonth(date) {
-  return new Date(date.getFullYear(), date.getMonth(), 1);
+function getStartOfMonth(date, timezone) {
+  /*   const zonedDate = utcToZonedTime(date, timezone);
+  const startOfMonthDate = startOfMonth(zonedDate);
+  return format(startOfMonthDate, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", {
+    timeZone: timezone,
+  }); */
+  return new Date(date.getFullYear(), date.getMonth(), 2);
 }
 
-function getEndOfMonth(date) {
+function getEndOfMonth(date, timezone) {
   return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  /*   const zonedDate = utcToZonedTime(date, timezone);
+  const startOfMonthDate = endOfMonth(zonedDate);
+  return format(startOfMonthDate, "yyyy-MM-dd'T'HH:mm:ss.SSSXXX", {
+    timeZone: timezone,
+  }); */
 }
 
-function getDateRange(startDate, endDate) {
+function getDateRange(startDate, endDate, timezone) {
   const dates = [];
   let current = startDate;
 

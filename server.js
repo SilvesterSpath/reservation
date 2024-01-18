@@ -1,6 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const calendar = require('./calendar');
+const {
+  getDateRange,
+  getEndOfMonth,
+  getStartOfMonth,
+  getEvents,
+  auth,
+} = require('./calendar');
 const { writeToFile } = require('./utils/utils');
 const { v4: uuidv4 } = require('uuid');
 
@@ -20,18 +26,16 @@ async function main() {
   let authClient;
 
   try {
-    authClient = await calendar.auth();
+    authClient = await auth();
   } catch (err) {
     console.error('Auth error', err);
     return;
   }
   const eventsByDate = {};
-  calendarEvents = await calendar.getEvents(authClient);
+  calendarEvents = await getEvents(authClient);
 
   calendarEvents.forEach((event) => {
-    console.log(event.summary);
     const startDate = new Date(event.start.dateTime || event.start.date);
-    /* const endDate = new Date(event.end.dateTime || event.end.date); */
 
     const date = startDate.toISOString().split('T')[0];
 
@@ -39,13 +43,15 @@ async function main() {
   });
 
   const today = new Date();
-  const start = calendar.getStartOfMonth(today);
-  const end = calendar.getEndOfMonth(today);
+  console.log(today);
+  const start = getStartOfMonth(today, 'Europe/Budapest');
+  console.log(start);
+  const end = getEndOfMonth(today, 'Europe/Budapest');
+  console.log(end);
 
-  const dateRange = calendar
-    .getDateRange(start, end)
-    .map((date) => date.toISOString().split('T')[0]);
-  console.log('dateRange', dateRange);
+  const dateRange = getDateRange(start, end, 'Europe/Budapest').map(
+    (date) => date.toISOString().split('T')[0]
+  );
 
   fullCalendar = dateRange.map((date) => {
     // Generate a unique ID
@@ -58,7 +64,6 @@ async function main() {
     };
   });
 
-  console.log(fullCalendar);
   /*   // Call the async function to write 'calendarEvents' to a file
   await writeToFile('calendarEvents.json', calendarEvents);
 
