@@ -1,19 +1,22 @@
 import React from 'react';
 
-function CalendarEvents({ calendarEvents }) {
+function CalendarEvents({ events }) {
   return (
     <div className='calendar-events'>
       <h2>Upcoming Events</h2>
 
-      {calendarEvents.map((event) => (
-        <div key={event.id} className='event'>
-          <h3>{event.summary}</h3>
-          <p>
-            {event.start.dateTime} - {event.end.dateTime}
-          </p>
-          <p>{event.description}</p>
-        </div>
-      ))}
+      {events.map(
+        (item) =>
+          item.event !== null && (
+            <div key={item.id} className='event'>
+              <h3>{item.event.summary}</h3>
+              <p>
+                {item.event.start.dateTime} - {item.event.end.dateTime}
+              </p>
+              <p>{item.event.description}</p>
+            </div>
+          )
+      )}
     </div>
   );
 }

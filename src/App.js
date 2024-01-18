@@ -49,7 +49,7 @@ const App = () => {
             <Home events={events} />
           </Route>
           <Route exact path='/events'>
-            <Events calendarEvents={events} />
+            <Events events={events} />
           </Route>
         </Switch>
       </Router>
