@@ -43,7 +43,7 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <button onClick={handleRefresh}>Refresh</button>
+        {/*         <button onClick={handleRefresh}>Refresh</button> */}
         <Switch>
           <Route exact path='/'>
             <Home events={events} />

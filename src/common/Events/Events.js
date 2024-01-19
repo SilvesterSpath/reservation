@@ -129,7 +129,7 @@ function CalendarEvents({ events }) {
                   />
                 </Modal>
               ) : (
-                'Click for details'
+                'Itt jelentkezhetsz'
               )}
             </div>
           )}
@@ -144,7 +144,7 @@ function CalendarEvents({ events }) {
         className='calendar-container'
         style={{ width: '95%', margin: '0 auto' }}
       >
-        <h2>Upcoming Events</h2>
+        {/*        <h2>Itt lehet jelentkezni:</h2> */}
         <Calendar
           localizer={localizer}
           startAccessor={startAccessor}
