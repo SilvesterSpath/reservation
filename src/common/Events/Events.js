@@ -8,7 +8,9 @@ import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 const localizer = momentLocalizer(moment);
 
 function CalendarEvents({ events }) {
-  const [expanded, setExpanded] = useState(false);
+  console.log(events);
+  const [selectedEvent, setSelectedEvent] = useState({});
+  const [isFormVisible, setIsFormVisible] = useState(false);
   const [isModalOpen, setModalOpen] = useState(false);
 
   const startAccessor = (event) => {
@@ -40,6 +42,11 @@ function CalendarEvents({ events }) {
     console.log('submitting form');
   };
 
+  const toggleForm = (event) => {
+    setSelectedEvent(event);
+    setIsFormVisible(!isFormVisible);
+  };
+
   const eventContent = ({ event }) => (
     <>
       <strong>{event.event.summary}</strong>
@@ -50,13 +57,19 @@ function CalendarEvents({ events }) {
           {event.event.description && (
             <div
               style={{ cursor: 'pointer', color: 'blue' }}
-              onClick={toggleDescription}
+              onClick={() => {
+                toggleDescription();
+                toggleForm(event.event); // Pass the event to the form when opening
+              }}
             >
               {isModalOpen ? (
                 // Modal content
                 <Modal
                   isOpen={isModalOpen}
-                  onRequestClose={toggleDescription}
+                  onRequestClose={() => {
+                    toggleDescription();
+                    setIsFormVisible(false);
+                  }}
                   style={{
                     overlay: {
                       backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fully opaque background
@@ -69,6 +82,12 @@ function CalendarEvents({ events }) {
                 >
                   <div className='form-modal'>
                     <div className='modal-content'>
+                      <span
+                        className='close'
+                        onClick={() => setIsFormVisible(false)}
+                      >
+                        &times;
+                      </span>
                       <h2>Edit Event</h2>
                       <form
                         onSubmit={(e) => {
@@ -85,7 +104,7 @@ function CalendarEvents({ events }) {
                           Event Description:
                           <textarea
                             name='eventDescription'
-                            defaultValue={/* selectedEvent.description || */ ''}
+                            defaultValue={selectedEvent.description || ''}
                           />
                         </label>
                         <br />
@@ -94,9 +113,7 @@ function CalendarEvents({ events }) {
                           <input
                             type='email'
                             name='attendeeEmail'
-                            defaultValue={
-                              /* selectedEvent.attendeeEmail || */ ''
-                            }
+                            defaultValue={selectedEvent.attendeeEmail || ''}
                             placeholder='Enter email'
                           />
                         </label>
@@ -107,12 +124,12 @@ function CalendarEvents({ events }) {
                   </div>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: event.event.description,
+                      __html: selectedEvent.description,
                     }}
                   />
                 </Modal>
               ) : (
-                'Click to open details'
+                'Click for details'
               )}
             </div>
           )}

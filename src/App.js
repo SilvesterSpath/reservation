@@ -8,8 +8,10 @@ import {
 import './App.css';
 import Home from './common/Home/Home';
 import Events from './common/Events/Events';
+import Modal from 'react-modal';
 
 const App = () => {
+  Modal.setAppElement('#root');
   const [events, setEvents] = useState([]);
 
   const fetchEvents = async () => {
