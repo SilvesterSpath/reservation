@@ -1,9 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Modal from 'react-modal';
+
+const localizer = momentLocalizer(moment);
 
 function CalendarEvents({ events }) {
+  const [expanded, setExpanded] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const startAccessor = (event) => {
+    if (event && event.event) {
+      return new Date(event.event.start.dateTime);
+    }
+    return null; // or return some default start date if needed
+  };
+
+  const endAccessor = (event) => {
+    if (event && event.event) {
+      return new Date(event.event.end.dateTime);
+    }
+    return null; // or return some default end date if needed
+  };
+
+  const titleAccessor = (event) => {
+    if (event && event.event) {
+      return event.event.summary;
+    }
+    return ''; // or return some default title if needed
+  };
+
+  const toggleDescription = () => {
+    setModalOpen(!isModalOpen);
+  };
+
+  const eventContent = ({ event }) => (
+    <>
+      <strong>{event.event.summary}</strong>
+      <div>
+        <span style={{ fontSize: '0.7em' }}>
+          {moment(event.event.start.dateTime).format('h:mm a')} -{' '}
+          {moment(event.event.end.dateTime).format('h:mm a')}
+          {event.event.description && (
+            <div
+              style={{ cursor: 'pointer', color: 'blue' }}
+              onClick={toggleDescription}
+            >
+              {isModalOpen ? (
+                // Modal content
+                <Modal isOpen={isModalOpen} onRequestClose={toggleDescription}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: event.event.description,
+                    }}
+                  />
+                </Modal>
+              ) : (
+                'Click to expand description'
+              )}
+            </div>
+          )}
+        </span>
+      </div>
+    </>
+  );
+
   return (
     <div className='calendar-events'>
-      <h2>Upcoming Events</h2>
+      <div
+        className='calendar-container'
+        style={{ width: '95%', margin: '0 auto' }}
+      >
+        <h2>Upcoming Events</h2>
+        <Calendar
+          localizer={localizer}
+          startAccessor={startAccessor}
+          endAccessor={endAccessor}
+          titleAccessor={titleAccessor}
+          components={{ event: eventContent }}
+          style={{ height: 600 }}
+          events={events}
+        />
+      </div>
 
       {events.map(
         (item) =>

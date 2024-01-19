@@ -71,18 +71,18 @@ async function main() {
   await writeToFile('fullCalendar.json', fullCalendar); */
 }
 
-main();
+async function runEveryMinute() {
+  await main();
+  setInterval(async () => {
+    try {
+      await main();
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }, 60000); // 60,000 milliseconds = 1 minute
+}
 
-// Endpoint to fetch events for a specific date
-app.get('/getEvents', async (req, res) => {
-  console.log('getEvents');
-  const date = req.query.date; // Assuming the client sends the date as a query parameter
-  console.log(date);
-  // Example: Sending a response with a message
-  res
-    .status(200)
-    .json({ message: 'Successfully received a request with date ' + date });
-});
+runEveryMinute();
 
 // Endpoint to fetch events
 app.get('/events', async (req, res) => {

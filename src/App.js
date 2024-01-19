@@ -12,38 +12,36 @@ import Events from './common/Events/Events';
 const App = () => {
   const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    const fetchEvents = async () => {
+  const fetchEvents = async () => {
+    try {
       const response = await fetch('/events');
-      console.log('fetch_response', response);
       const data = await response.json();
-      console.log(data);
-      setEvents(data);
-    };
-
-    fetchEvents();
-  }, []);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const handleIframeClick = () => {
-      console.log('Iframe clicked!');
+    const fetchData = async () => {
+      const events = await fetchEvents();
+
+      setEvents(events);
     };
 
-    window.addEventListener('message', (event) => {
-      if (event.data === 'iframeClick') {
-        handleIframeClick();
-      }
-    });
-
-    return () => {
-      window.removeEventListener('message', handleIframeClick);
-    };
+    fetchData();
   }, []);
+
+  const handleRefresh = async () => {
+    const events = await fetchEvents();
+    setEvents(events);
+  };
 
   return (
     <>
       <Router>
         <Navbar />
+        <button onClick={handleRefresh}>Refresh</button>
         <Switch>
           <Route exact path='/'>
             <Home events={events} />
