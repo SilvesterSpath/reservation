@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Modal from 'react-modal';
+import { hasFormSubmit } from '@testing-library/user-event/dist/utils';
 
 const localizer = momentLocalizer(moment);
 
@@ -35,6 +36,10 @@ function CalendarEvents({ events }) {
     setModalOpen(!isModalOpen);
   };
 
+  const handleFormSubmit = () => {
+    console.log('submitting form');
+  };
+
   const eventContent = ({ event }) => (
     <>
       <strong>{event.event.summary}</strong>
@@ -49,7 +54,57 @@ function CalendarEvents({ events }) {
             >
               {isModalOpen ? (
                 // Modal content
-                <Modal isOpen={isModalOpen} onRequestClose={toggleDescription}>
+                <Modal
+                  isOpen={isModalOpen}
+                  onRequestClose={toggleDescription}
+                  style={{
+                    overlay: {
+                      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fully opaque background
+                      zIndex: 1000, // Higher z-index to ensure it's on top
+                    },
+                    content: {
+                      backgroundColor: 'white',
+                    },
+                  }}
+                >
+                  <div className='form-modal'>
+                    <div className='modal-content'>
+                      <h2>Edit Event</h2>
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          handleFormSubmit({
+                            description:
+                              e.target.elements.eventDescription.value,
+                            attendeeEmail:
+                              e.target.elements.attendeeEmail.value,
+                          });
+                        }}
+                      >
+                        <label>
+                          Event Description:
+                          <textarea
+                            name='eventDescription'
+                            defaultValue={/* selectedEvent.description || */ ''}
+                          />
+                        </label>
+                        <br />
+                        <label>
+                          Attendee Email:
+                          <input
+                            type='email'
+                            name='attendeeEmail'
+                            defaultValue={
+                              /* selectedEvent.attendeeEmail || */ ''
+                            }
+                            placeholder='Enter email'
+                          />
+                        </label>
+                        <br />
+                        <button type='submit'>Submit</button>
+                      </form>
+                    </div>
+                  </div>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: event.event.description,
@@ -57,7 +112,7 @@ function CalendarEvents({ events }) {
                   />
                 </Modal>
               ) : (
-                'Click to expand description'
+                'Click to open details'
               )}
             </div>
           )}
