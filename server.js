@@ -9,6 +9,15 @@ const {
 } = require('./calendar');
 const { writeToFile } = require('./utils/utils');
 const { v4: uuidv4 } = require('uuid');
+/* const ngrok = require('@ngrok/ngrok');
+
+// Get your endpoint online
+ngrok
+  .connect({
+    addr: 3000,
+    authtoken: '2bnbRsH6Kt4WDVtt9EIWPwqk4YP_uqTragGXrMEe5auNTyvQ',
+  })
+  .then((listener) => console.log(`Ingress established at: ${listener.url()}`)); */
 
 const app = express();
 
